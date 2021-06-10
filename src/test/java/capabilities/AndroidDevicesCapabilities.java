@@ -1,0 +1,28 @@
+package capabilities;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.io.File;
+
+public enum AndroidDevicesCapabilities {
+
+    ANDROID("resources/capabilities/android.json");
+
+    private String path;
+
+    AndroidDevicesCapabilities(String path) {
+        this.path = path;
+    }
+
+    public DesiredCapabilities getAndroidCapabilitiesFromPlataform() {
+        DesiredCapabilities androidCapabilities = Load_capabilities.pathToDesiredCapabilitites(this.path);
+        androidCapabilities.setCapability("app", new File("resources/apps/app-debug.apk").getAbsolutePath());
+        return androidCapabilities;
+    }
+
+    public static void showAvaliableAndroidDevices() {
+        System.out.println("======= ANDROID DEVICES ====== ");
+        for (AndroidDevicesCapabilities androidDevicesCapabilities : AndroidDevicesCapabilities.values()) {
+            System.out.println(androidDevicesCapabilities.name());
+        }
+    }
+}

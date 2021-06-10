@@ -1,0 +1,10 @@
+{
+"platformName": "Android",
+"deviceName": "projetoappium",
+"platformVersion": "10",
+"automationName": "UiAutomator2",
+"udid": "emulator-5554",
+"avd": "projetoappium",
+"fullReset": true,
+"newCommandTimeout": 5
+}
